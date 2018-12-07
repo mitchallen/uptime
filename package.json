@@ -1,6 +1,6 @@
 {
   "name": "@mitchallen/uptime",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Returns process uptime as a string",
   "main": "src/index.js",
   "scripts": {
