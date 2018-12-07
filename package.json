@@ -6,7 +6,7 @@
   "scripts": {
     "//": "To use: npm start (useful if not a module)",
     "start": "node src/index.js",
-    "test": "grunt && /usr/local/bin/mocha --recursive --timeout 20000",
+    "test": "grunt && mocha --recursive --timeout 20000",
     "test-coverage": "./node_modules/.bin/istanbul cover _mocha -- -R spec test/**/*",
     "test-nodemon": "nodemon /usr/local/bin/mocha --timeout 5000",
     "test-debug": "nodemon /usr/local/bin/mocha -g '@DEBUG' --recursive --timeout 20000",
