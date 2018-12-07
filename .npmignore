@@ -7,3 +7,4 @@ support
 .env
 .gitignore
 .travis.yml
+.circleci
