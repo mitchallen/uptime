@@ -17,14 +17,15 @@ Returns process uptime as a string
     <img src="http://img.shields.io/npm/v/@mitchallen/uptime.svg?style=flat-square" alt="Version">
   </a>
   <a href="https://npmjs.com/package/@mitchallen/uptime">
-    <img src="https://img.shields.io/github/license/mitchallen/uptime.svg" alt="License"></a>
+    <img src="https://img.shields.io/npm/l/@mitchallen/uptime.svg?style=flat-square" alt="License"></a>
   </a>
+
 </p>
 
 ## Installation
 
     $ npm init
-    $ npm install @mitchallen/marchio-lambda-delete --save
+    $ npm install @mitchallen/uptime --save
   
 * * *
 
