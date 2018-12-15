@@ -11,7 +11,7 @@ Returns process uptime as a string
     <img src="https://codecov.io/gh/mitchallen/uptime/branch/master/graph/badge.svg" alt="Coverage Status">
   </a>
   <a href="https://npmjs.org/package/@mitchallen/uptime">
-    <img src="http://img.shields.io/npm/dt/@mitchallen/uptime.svg?style=flat-square" alt="Downloads">
+    <img src="http://img.shields.io/npm/dw/@mitchallen/uptime.svg?style=flat-square" alt="Downloads">
   </a>
   <a href="https://npmjs.org/package/@mitchallen/uptime">
     <img src="http://img.shields.io/npm/v/@mitchallen/uptime.svg?style=flat-square" alt="Version">

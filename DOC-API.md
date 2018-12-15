@@ -8,7 +8,7 @@ Module
 ### uptime.toHHMMSS() ⇒ <code>string</code>
 Factory method
 
-**Kind**: static method of <code>[uptime](#module_uptime)</code>  
+**Kind**: static method of [<code>uptime</code>](#module_uptime)  
 **Returns**: <code>string</code> - that returns uptime as a string in the form of HH:MM:SS  
 **Example** *(Usage example)*  
 ```js
