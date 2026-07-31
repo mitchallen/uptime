@@ -4,29 +4,41 @@ Returns process uptime as a string
 --
 
 <p align="left">
-  <a href="https://circleci.com/gh/mitchallen/uptime">
-    <img src="https://img.shields.io/circleci/project/github/mitchallen/uptime.svg" alt="Continuous Integration">
+  <a href="https://github.com/mitchallen/uptime/actions/workflows/ci.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/mitchallen/uptime/ci.yml?branch=master" alt="CI">
   </a>
   <a href="https://codecov.io/gh/mitchallen/uptime">
     <img src="https://codecov.io/gh/mitchallen/uptime/branch/master/graph/badge.svg" alt="Coverage Status">
   </a>
-  <a href="https://npmjs.org/package/@mitchallen/uptime">
-    <img src="http://img.shields.io/npm/dw/@mitchallen/uptime.svg?style=flat-square" alt="Downloads">
+  <a href="https://github.com/mitchallen/uptime/pkgs/npm/uptime">
+    <img src="https://img.shields.io/badge/GitHub%20Packages-uptime-blue" alt="GitHub Packages">
   </a>
-  <a href="https://npmjs.org/package/@mitchallen/uptime">
-    <img src="http://img.shields.io/npm/v/@mitchallen/uptime.svg?style=flat-square" alt="Version">
-  </a>
-  <a href="https://npmjs.com/package/@mitchallen/uptime">
-    <img src="https://img.shields.io/npm/l/@mitchallen/uptime.svg?style=flat-square" alt="License"></a>
+  <a href="https://github.com/mitchallen/uptime/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
   </a>
 
 </p>
 
 ## Installation
 
+This package publishes to __GitHub Packages__, not the public npm registry. Versions
+__0.0.8__ and earlier remain on npmjs.org and are no longer updated there.
+
+Add an `.npmrc` next to your `package.json`:
+
+    @mitchallen:registry=https://npm.pkg.github.com
+
+GitHub Packages requires authentication even for public packages, so you also need a
+personal access token with the `read:packages` scope. Keep it in an environment
+variable rather than committing it:
+
+    //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+
+Then:
+
     $ npm init
-    $ npm install @mitchallen/uptime --save
-  
+    $ npm install @mitchallen/uptime
+
 * * *
 
 ## Testing
