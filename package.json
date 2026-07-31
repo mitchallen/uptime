@@ -3,6 +3,9 @@
   "version": "0.0.8",
   "description": "Returns process uptime as a string",
   "main": "src/index.js",
+  "files": [
+    "src"
+  ],
   "scripts": {
     "test": "mocha --recursive --timeout 20000",
     "coverage": "c8 mocha --recursive --timeout 20000"
