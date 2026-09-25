@@ -4,26 +4,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-`@mitchallen/uptime` — an npm package that returns `process.uptime()` formatted as an `HH:MM:SS` string. Single exported method: `toHHMMSS()`.
+`@mitchallen/uptime` — an npm package that returns `process.uptime()` formatted as an `HH:MM:SS` string. Single exported method: `toHHMMSS()`. Published to GitHub Packages (`publishConfig.registry = https://npm.pkg.github.com`), not npmjs.
 
 ## Commands
 
-- **Install:** `npm install`
-- **Test (lint + tests):** `npm test` — runs Grunt (jshint + doc generation) then Mocha
-- **Lint only:** `npx grunt jshint`
-- **Test only (skip lint):** `npx mocha --recursive --timeout 20000`
-- **Coverage:** `npm run coverage` (Istanbul)
-- **Generate API docs:** `npx grunt build-doc` (writes `DOC-API.md` from JSDoc in `src/`)
+- **Install:** `make install` / `npm install`
+- **Test:** `make test` / `npm test` (Mocha)
+- **Coverage:** `make coverage` / `npm run coverage` (c8, fails unless statements/branches/functions/lines are all 100%)
+- **Tarball check:** `make pack-check` — fails if `npm pack` would ship anything outside the `files` allowlist
 
 ## Architecture
 
 - **`src/index.js`** — entire module; exports `toHHMMSS()`
 - **`test/smoke-test.js`** — Mocha/Chai tests using `chai-match` for regex assertions
-- **`Gruntfile.js`** — build pipeline: jshint linting, jsdoc-to-markdown doc gen, version bumping (`grunt-bump`), npm publish tasks
-- **CI:** CircleCI 2.0 (`.circleci/config.yml`) — runs `yarn install`, `yarn test`, coverage upload to Codecov
+- **`scripts/check-pack.js`** — the pack-check script
+- **CI:** GitHub Actions. `.github/workflows/ci.yml` runs the tests under the 100% coverage gate, then pack-check, on pushes and PRs to `main`. `.github/workflows/publish.yml` publishes to GitHub Packages when a `v*` tag is pushed, after checking that the tag matches `package.json`. Coverage stays internal (no Codecov); the README's coverage badge is a static 100% badge, which the CI gate keeps honest.
 
 ## Build Notes
 
-- Grunt `default` task runs `upcoming:patch` then `build` (jshint + doc gen). This runs automatically as part of `npm test`.
-- `DOC-API.md` is auto-generated — edit JSDoc comments in `src/`, not the markdown file directly.
-- Publishing tasks (`grunt publish`, `grunt pubminor`, `grunt pubmajor`) handle version bump, tag, and npm publish in sequence.
+- API docs live in `README.md`; update them by hand if the API changes.
+- Release: bump `version` in `package.json`, commit, tag `vX.Y.Z`, push the tag.
