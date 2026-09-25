@@ -7,7 +7,9 @@ Returns process uptime as a string
   <a href="https://github.com/mitchallen/uptime/actions/workflows/ci.yml">
     <img src="https://img.shields.io/github/actions/workflow/status/mitchallen/uptime/ci.yml?branch=main" alt="CI">
   </a>
-  <img src="https://img.shields.io/badge/coverage-100%25-brightgreen" alt="Coverage: 100%">
+  <a href="https://github.com/mitchallen/uptime/actions/workflows/ci.yml?query=branch%3Amain">
+    <img src="https://img.shields.io/badge/coverage-100%25-brightgreen" alt="Coverage: 100%">
+  </a>
   <a href="https://github.com/mitchallen/uptime/pkgs/npm/uptime">
     <img src="https://img.shields.io/badge/GitHub%20Packages-uptime-blue" alt="GitHub Packages">
   </a>
