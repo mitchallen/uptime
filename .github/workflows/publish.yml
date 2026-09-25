@@ -27,7 +27,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: npm test
+      # Runs the tests and fails unless coverage is 100%.
+      - run: npm run coverage
 
       - name: Verify the tag matches package.json
         if: github.event_name == 'push'

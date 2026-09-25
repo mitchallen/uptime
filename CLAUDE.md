@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **Install:** `make install` / `npm install`
 - **Test:** `make test` / `npm test` (Mocha)
-- **Coverage:** `make coverage` / `npm run coverage` (c8)
+- **Coverage:** `make coverage` / `npm run coverage` (c8, fails unless statements/branches/functions/lines are all 100%)
 - **Tarball check:** `make pack-check` — fails if `npm pack` would ship anything outside the `files` allowlist
 
 ## Architecture
@@ -18,9 +18,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **`src/index.js`** — entire module; exports `toHHMMSS()`
 - **`test/smoke-test.js`** — Mocha/Chai tests using `chai-match` for regex assertions
 - **`scripts/check-pack.js`** — the pack-check script
-- **CI:** GitHub Actions. `.github/workflows/ci.yml` runs tests, coverage and pack-check on pushes and PRs to `main`. `.github/workflows/publish.yml` publishes to GitHub Packages when a `v*` tag is pushed, after checking that the tag matches `package.json`.
+- **CI:** GitHub Actions. `.github/workflows/ci.yml` runs the tests under the 100% coverage gate, then pack-check, on pushes and PRs to `main`. `.github/workflows/publish.yml` publishes to GitHub Packages when a `v*` tag is pushed, after checking that the tag matches `package.json`. Coverage stays internal (no Codecov); the README's coverage badge is a static 100% badge, which the CI gate keeps honest.
 
 ## Build Notes
 
-- `DOC-API.md` is no longer regenerated (the Grunt/jsdoc pipeline was removed); edit it by hand if the API changes.
+- API docs live in `README.md`; update them by hand if the API changes.
 - Release: bump `version` in `package.json`, commit, tag `vX.Y.Z`, push the tag.

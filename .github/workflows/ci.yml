@@ -27,8 +27,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: npm test
-
+      # Runs the tests and fails unless coverage is 100%.
       - run: npm run coverage
 
       # Runs after coverage so it proves the files allowlist excludes coverage/.
