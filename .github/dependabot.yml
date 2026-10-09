@@ -1,20 +1,12 @@
 version: 2
 updates:
-  # Keep the dev toolchain's lockfile current so patched transitive versions
-  # land before an advisory fires.
-  - package-ecosystem: npm
-    directory: /
-    schedule:
-      interval: weekly
-    groups:
-      dev-dependencies:
-        dependency-type: development
-    open-pull-requests-limit: 5
-
+  # Only GitHub Actions are tracked. The package has no npm dependencies,
+  # runtime or dev (tests use node:test), so there is nothing for the npm
+  # ecosystem to update. If you add an npm dependency, add an npm entry back.
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     groups:
       actions:
         patterns: ["*"]

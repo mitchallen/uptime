@@ -43,6 +43,10 @@ Then:
 
 ## Testing
 
+The package has no dependencies, runtime or dev: the tests use Node's built-in
+test runner, so there is nothing to install first. Testing requires Node 22.8 or
+later (for the coverage thresholds); the package itself runs on any Node version.
+
 To test, go to the root folder and type (sans __$__):
 
     $ npm test

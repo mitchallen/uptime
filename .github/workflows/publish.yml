@@ -23,10 +23,6 @@ jobs:
       # inputs, which write a scope mapping that breaks npm ci.
       - run: echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> ~/.npmrc
 
-      - run: npm ci
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       # Runs the tests and fails unless coverage is 100%.
       - run: npm run coverage
 
