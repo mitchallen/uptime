@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: read
     steps:
       - uses: actions/checkout@v7
 
@@ -19,16 +18,10 @@ jobs:
         with:
           node-version: '24'
 
-      # Authenticate to GitHub Packages without setup-node's registry-url/scope
-      # inputs, which write a scope mapping that breaks npm ci.
-      - run: echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> ~/.npmrc
-
-      - run: npm ci
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # No install step: the package has no dependencies, and the tests and
+      # coverage gate use Node's built-in test runner.
 
       # Runs the tests and fails unless coverage is 100%.
       - run: npm run coverage
 
-      # Runs after coverage so it proves the files allowlist excludes coverage/.
       - run: make pack-check

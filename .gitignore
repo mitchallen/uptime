@@ -6,6 +6,8 @@ coverage/
 .DS_Store
 .npmrc
 *.tgz
+# No dependencies, so no lockfile to track (and nothing for Dependabot to scan).
+package-lock.json
 
 .vs/
 
